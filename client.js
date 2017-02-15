@@ -1,21 +1,13 @@
-// You will be creating a little 'pick the block' game with HTML, CSS, and jQuery!
-//
-// On document load, append four (or more!) divs on to the DOM with jQuery,
-// each colored with a different color. Each div needs to know which color it is.
-//
-// Prompt the player to pick one of the color blocks you created at random.
-//
-/* NOTE: we can find the element color using .ccs() */
-
 $(document).ready(function(){
+
 var colorArray = ['red', 'blue', 'green', 'black'];
 var colorToPick = null;
 var prompt = '';
 $('#result').text(prompt);
 
+// on start click, generate random color to find
 $('#startButton').on('click', function() {
   colorToPick = 'Click on ' + colorArray[randomNumber(colorArray.length)];
-  prompt = 'Click on ' +  colorArray[randomNumber(0,4)];
   $('#result').text(colorToPick);
 });
 
@@ -28,15 +20,11 @@ for (var i = 0; i < 4; i++) {
   $('body').append(colorDiv);
 }
 
-// randomizer function
+// randomizer function takes in array and will look at length
 function randomNumber(array){
     return Math.floor(Math.random() * (1 + array - 0) + 0);
 
 }
-
-// var prompt = 'Click on: ' + colorArray[randomNumber(0,4)];
-// console.log(prompt);
-
 
 // on div click {
 // for each div, does the data (css background color) = prompt?
