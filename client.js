@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  var colorArray = ['red', 'blue', 'green', 'black'];
+  var colorArray = ['red', 'blue', 'green', 'black',];
   var colorToPick = null;
   var prompt = '';
   $('#result').text(prompt);
@@ -12,7 +12,7 @@ $(document).ready(function(){
   });
 
   // create colored divs
-  for (var i = 0; i < 4; i++) {
+  for (var i = 0; i < colorArray.length; i++) {
     var colorDiv = $('<div class= "colorDiv"></div>');
     colorDiv.data('idNumber', i);
     colorDiv.data('background-color', colorArray[i]);
@@ -21,19 +21,25 @@ $(document).ready(function(){
   }
 
   // randomizer function takes in array and will look at length
-  function randomNumber(array){
-    return Math.floor(Math.random() * (1 + array - 0) + 0);
+  function randomNumber(arrayLength){
+    return Math.floor(Math.random() * arrayLength);
 
   }
 
+//   function randomNumber(min, max){
+//     return Math.floor(Math.random() * (1 + max - min) + min);
+// }
+
   // on div click {
-  // for each div, does the data (css background color) = colorToPick?
+  // for each div, does the data background color) = colorToPick?
   $('div').click(function() {
     var color = $(this).data( "background-color" );
-    console.log(colorToPick);
     if (color == colorToPick) {
       $('#message').text('You got it! Play again?');
-      colorToPick = colorArray[randomNumber(colorArray.length)];
+      var randomNumberSelected = randomNumber(colorArray.length);
+      colorToPick = colorArray[randomNumberSelected];
+      console.log(randomNumberSelected);
+      console.log(colorToPick);
       $('#result').text(colorToPick);
     } else {
       $('#message').text('Not that');
