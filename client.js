@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  var colorArray = ['red', 'blue', 'green', 'black',];
+  var colorArray = ['red', 'blue', 'green', 'black', 'pink', 'yellow'];
   var colorToPick = null;
   var prompt = '';
   $('#result').text(prompt);
@@ -48,7 +48,5 @@ $(document).ready(function(){
   });
 
 });
-// NOTE: todo: why is div click sometimes slow/buggy?
-// likely cause - colorToPick sometimes logs as undefined - how did i fix that??
-// add new color div on correct answer
+// NOTE: todo: // adding colors to array works, but how to add on correct div click?
 // style html
